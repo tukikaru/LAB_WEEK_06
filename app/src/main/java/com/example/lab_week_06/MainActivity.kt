@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         itemTouchHelper.attachToRecyclerView(recyclerView)
 
         catAdapter.setData(
+            // TAMBAHKAN listOf(...) DI SINI
             listOf(
                 CatModel(
                     Gender.Male,
@@ -55,14 +56,64 @@ class MainActivity : AppCompatActivity() {
                     "Curious George",
                     "Award winning investigator",
                     "https://cdn2.thecatapi.com/images/bar.jpg"
+                ),
+                CatModel(
+                    Gender.Female,
+                    CatBreed.AmericanCurl,
+                    "Bella",
+                    "Loves to nap in the sun",
+                    "https://cdn2.thecatapi.com/images/55k.jpg"
+                ),
+                CatModel(
+                    Gender.Male,
+                    CatBreed.ExoticShorthair,
+                    "Oliver",
+                    "Expert in finding cozy spots",
+                    "https://cdn2.thecatapi.com/images/dsf.jpg"
+                ),
+                CatModel(
+                    Gender.Female,
+                    CatBreed.BalineseJavanese,
+                    "Lucy",
+                    "A very graceful jumper",
+                    "https://cdn2.thecatapi.com/images/a2b.jpg"
+                ),
+                CatModel(
+                    Gender.Male,
+                    CatBreed.AmericanCurl,
+                    "Leo",
+                    "Has a loud purr",
+                    "https://cdn2.thecatapi.com/images/3g5.jpg"
+                ),
+                CatModel(
+                    Gender.Unknown,
+                    CatBreed.ExoticShorthair,
+                    "Milo",
+                    "Always looking for a snack",
+                    "https.cdn2.thecatapi.com/images/c2f.jpg"
+                ),
+                CatModel(
+                    Gender.Female,
+                    CatBreed.BalineseJavanese,
+                    "Chloe",
+                    "Loves chasing laser pointers",
+                    "https.cdn2.thecatapi.com/images/bkj.jpg"
+                ),
+                CatModel(
+                    Gender.Male,
+                    CatBreed.AmericanCurl,
+                    "Max",
+                    "The king of the house",
+                    "https.cdn2.thecatapi.com/images/d82.jpg"
                 )
+                // JANGAN LUPA KURUNG TUTUP untuk listOf(...)
             )
         )
     }
 
     // Fungsi untuk menampilkan dialog ditambahkan
     private fun showSelectionDialog(cat: CatModel) {
-        AlertDialog.Builder(this)
+            AlertDialog.Builder(this)
             .setTitle("Cat Selected")
             .setMessage("You have selected cat ${cat.name}")
             .setPositiveButton("OK") { _, _ -> }
