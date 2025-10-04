@@ -13,8 +13,10 @@ private val MALE_SYMBOL = "\u2642"
 private const val UNKNOWN_SYMBOL = "?"
 
 class CatViewHolder(
-    containerView: View,
-    private val imageLoader: ImageLoader
+    private val containerView: View,
+    private val imageLoader: ImageLoader,
+    // Perhatikan perubahan tipe data di baris ini
+    private val onClickListener: CatAdapter.OnClickListener
 ) : RecyclerView.ViewHolder(containerView) {
 
     private val catPhotoView: ImageView by lazy { containerView.findViewById(R.id.cat_photo) }
@@ -24,6 +26,10 @@ class CatViewHolder(
     private val catGenderView: TextView by lazy { containerView.findViewById(R.id.cat_gender) }
 
     fun bindData(cat: CatModel) {
+        containerView.setOnClickListener {
+            onClickListener.onItemClick(cat)
+        }
+
         imageLoader.loadImage(cat.imageUrl, catPhotoView)
         catNameView.text = cat.name
         catBreedView.text = when (cat.breed) {
@@ -38,4 +44,6 @@ class CatViewHolder(
             else -> UNKNOWN_SYMBOL
         }
     }
+
+    // Pastikan tidak ada interface OnClickListener lagi di sini
 }
